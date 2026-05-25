@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Library Dashboard</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            background: #f1f5f9;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 240px;
+            height: 100vh;
+            background: #0f172a;
+            color: white;
+            position: fixed;
+            padding: 20px;
+        }
+
+        .sidebar h2 {
+            margin-bottom: 30px;
+        }
+
+        .sidebar a {
+            display: block;
+            color: #cbd5f5;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            background: #1e293b;
+            color: white;
+        }
+
+        /* Content */
+        .content {
+            margin-left: 240px;
+            padding: 30px;
+            width: 100%;
+        }
+
+        .content h1 {
+            margin-bottom: 25px;
+        }
+
+        /* Cards */
+        .cards {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            width: 250px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #475569;
+        }
+
+        .card p {
+            font-size: 28px;
+            font-weight: bold;
+            color: #0f172a;
+        }
+
+    </style>
+</head>
+
+<body>
+
+      <!-- SIDEBAR -->
+    <div class="sidebar">
+
+        <!-- Logo -->
+        <div class="logo">
+            📚 LibraryAdmin
+        </div>
+
+        <!-- MAIN -->
+        <div class="section-title">MAIN</div>
+
+        <a href="{% url 'home' %}" class="menu-item">
+            📊 Overview
+        </a>
+
+        <a href="{% url 'books' %}" class="menu-item">
+            📚 Books
+        </a>
+
+        <a href="{% url 'member_list' %}" class="menu-item active">
+            👥 Members
+        </a>
+
+        <!-- TRANSACTIONS -->
+        <div class="section-title">TRANSACTIONS</div>
+
+        <a href="{% url 'issue_book' %}" class="menu-item">
+            📤 Issued Books
+        </a>
+
+        <a href="{% url 'return_book' %}" class="menu-item">
+            📥 Return Book
+        </a>
+
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+        <h1>Dashboard</h1>
+
+        <div class="cards">
+            <div class="card">
+                <h3>Total Books</h3>
+                <p>{{ total_books }}</p>
+            </div>
+
+            <div class="card">
+                <h3>Members</h3>
+                <p>{{ total_members }}</p>
+            </div>
+
+            <div class="card">
+                <h3>Issued Books</h3>
+                <p>{{ issued_books }}</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
